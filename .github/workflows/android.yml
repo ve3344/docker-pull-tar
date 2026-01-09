@@ -18,6 +18,6 @@ jobs:
     - name: sss
       run: pip install -r requirements.txt
     - name: Pull
-      run: python docker_image_puller.py -i mekayelanik/samba-server-alpine:latest -a arm64 --debug
+      run: python docker_image_puller.py -i mekayelanik/samba-server-alpine:latest -a arm64 -r 1ms.run --debug
     - name: ls
       run: ls
