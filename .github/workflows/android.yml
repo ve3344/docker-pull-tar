@@ -1,0 +1,22 @@
+name: Pull CI
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+    - name: set up JDK 11
+      uses: actions/setup-python@v6.1.0
+
+    - name: Pull
+      run: python docker_image_puller.py -i mekayelanik/samba-server-alpine:latest -a arm64 --debug
+    - name: ls
+      run: ls
